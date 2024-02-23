@@ -1,5 +1,6 @@
 body {
     background: url("../images/Basketball_Court_Background.png");
+    background-size: cover;
     min-height: 100vh;
     background-position: center;
     padding: 0;
@@ -7,6 +8,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+    background-color: aliceblue;
 }
 
 .containter {
@@ -46,5 +48,4 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-
   }
