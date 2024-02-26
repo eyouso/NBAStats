@@ -17,27 +17,35 @@ body {
     display: grid;
     gap: 5rem;
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
 }
 
 .player {
+    /*center the content*/
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+  
     grid-column: span 2;
 }
 
 .info {
-    grid-area: 2 / 1 / 3 /2;
+    grid-area: 2 / 1 / 4 /2;
 }
 
 .stats {
-    grid-area: 2 / 2 / 3 /3;
+    grid-area: 2 / 2 / 4 /3;
 }
 
-.search {
-    grid-column: span 2;
-}
 
-.season {
-    grid-column: span 2;
+.form {
+    /* center the form using grid */
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: 1fr 1fr 0.5fr;
+    width: 50%;
+    height: 50%;
 }
 
 .item {
