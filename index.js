@@ -17,6 +17,15 @@ app.use(bodyParser.urlencoded({ extended: true }));
 function getRandomID() {
     return Math.floor(Math.random() * 3092);
 }
+function getSeason() {
+    const date = new Date();
+    const month = date.getMonth();
+    if (month > 8) {
+        return date.getFullYear();
+    } else {
+        return date.getFullYear() - 1;
+    }
+}
 
 app.get("/", async (req, res) => {
     res.render("index.ejs");
@@ -24,10 +33,11 @@ app.get("/", async (req, res) => {
 
 app.post("/get-player", async (req, res) => {
     const id = getRandomID();
+    const season = getSeason();
     try {
         const result = await axios.get(API_URL + "/players/" + id, config);
-        console.log(result.data);
-        res.render("index.ejs", { content: result.data  });
+        const stats = await axios.get(API_URL + "/season_averages/?season=" +  season + "&player_ids[]=" + id, config);
+        res.render("index.ejs", { content: result.data, stats: stats.data});
     } catch (error) {
         res.render("index.ejs", { content: JSON.stringify(error.response.data) });
     }

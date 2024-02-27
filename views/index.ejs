@@ -10,7 +10,11 @@
     <div class="containter">
         <div class="item player">
             <% if(locals.content) {%>
+                <% if (content.data.first_name && content.data.last_name) {%>
                 <h1><%= content.data.first_name + " " + content.data.last_name %></h1>
+                <% } else { %>
+                    <h1>Name Unavailable</h1>
+                <% } %>
             <% } else { %>
             <h1>Player</h1>
             <% } %>
@@ -53,10 +57,52 @@
                     Draft Number: <%= content.data.draft_number %> <br>
                 <% } %>
             </p>
+            <% } else {%>
+                <p>Player Info Unavailable</p>
             <% } %>
         </div>
         <div class = "item stats">
             <h2>Player Stats (Current Season Only)</h2>
+            <% if(locals.stats) {%>
+                <p>
+                <% if(!stats.data[0]) { %>
+                    No Stats For Current Season
+                <% } else { %>
+                    <% if(stats.data[0].pts) { %>
+                        PPG: <%= stats.data[0].pts %> <br>
+                    <% } %>
+                    <% if(stats.data[0].ast) { %>
+                        APG: <%= stats.data[0].ast %> <br>
+                    <% } %>
+                    <% if(stats.data[0].reb) { %>
+                        RPG: <%= stats.data[0].reb %> <br>
+                    <% } %>
+                    <% if(stats.data[0].stl) { %>
+                        SPG: <%= stats.data[0].stl %> <br>
+                    <% } %>
+                    <% if(stats.data[0].blk) { %>
+                        BPG: <%= stats.data[0].blk %> <br>
+                    <% } %>
+                    <% if(stats.data[0].turnover) { %>
+                        TO: <%= stats.data[0].turnover %> <br>
+                    <% } %>
+                    <% if(stats.data[0].fg_pct) { %>
+                        FG%: <%= stats.data[0].fg_pct %> <br>
+                    <% } %>
+                    <% if(stats.data[0].fg3_pct) { %>
+                        3P%: <%= stats.data[0].fg3_pct %> <br>
+                    <% } %>
+                    <% if(stats.data[0].ft_pct) { %>    
+                        FT%: <%= stats.data[0].ft_pct %> <br>
+                    <% } %>
+                    <% if(stats.data[0].games_played) {%>
+                        GP: <%= stats.data[0].games_played %> <br>
+                    <% } %>
+                <% } %>
+                </p>
+            <% } else { %>
+                <p>Stats Unavailable</p>
+            <% } %>
         </div>
     </div>
 </body>
