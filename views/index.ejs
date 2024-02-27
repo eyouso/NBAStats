@@ -23,10 +23,40 @@
         
         <div class="item info">
             <h2>Player Info</h2>
-            <p></p>
+            <% if(locals.content) { %>
+                <p>
+                <% if(content.data.team.full_name) { %>
+                    Team: <%= content.data.team.full_name %> <br>
+                <% } %>
+                <% if(content.data.position) { %>
+                    Position: <%= content.data.position %> <br> 
+                <% } %>
+                <% if(content.data.height) { %>
+                    Height: <%= content.data.height %> <br>
+                <% } %>
+                <% if(content.data.weight) { %>
+                    Weight: <%= content.data.weight %> lbs <br>
+                <% } %>
+                <% if(content.data.jersey_number) { %>
+                    Jersey Number: <%= content.data.jersey_number %> <br>
+                <% } %>
+                <% if(content.data.college) { %> 
+                    College: <%= content.data.college %> <br>
+                <% } %>
+                <% if(content.data.draft_year) { %>
+                    Draft Year: <%= content.data.draft_year %> <br>
+                <% } %>
+                <% if(content.data.draft_round) { %>
+                    Draft Round:  <%= content.data.draft_round %> <br>
+                <% } %>
+                <% if(content.data.draft_number) { %>
+                    Draft Number: <%= content.data.draft_number %> <br>
+                <% } %>
+            </p>
+            <% } %>
         </div>
         <div class = "item stats">
-            <h2>Player Stats</h2>
+            <h2>Player Stats (Current Season Only)</h2>
         </div>
     </div>
 </body>

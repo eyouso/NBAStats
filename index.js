@@ -26,6 +26,7 @@ app.post("/get-player", async (req, res) => {
     const id = getRandomID();
     try {
         const result = await axios.get(API_URL + "/players/" + id, config);
+        console.log(result.data);
         res.render("index.ejs", { content: result.data  });
     } catch (error) {
         res.render("index.ejs", { content: JSON.stringify(error.response.data) });
