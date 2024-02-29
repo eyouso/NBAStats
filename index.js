@@ -1,5 +1,7 @@
 import express from "express";
 import axios from "axios";
+
+// for future use
 import bodyParser from "body-parser";
 
 
@@ -12,6 +14,8 @@ const config = {
 };
 
 app.use(express.static("public"));
+
+// for future use
 app.use(bodyParser.urlencoded({ extended: true }));
 
 function getRandomID() {
