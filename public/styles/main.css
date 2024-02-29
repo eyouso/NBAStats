@@ -22,6 +22,10 @@ body {
 
 .player {    
     grid-area: 1 / 2 / 2 / 4;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 .random {

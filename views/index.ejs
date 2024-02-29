@@ -10,10 +10,12 @@
     <div class="containter">
         <div class="item player">
             <% if(locals.content) {%>
-                <% if (content.data.first_name && content.data.last_name) {%>
+                <% console.log(content.data) %>
+                <% if (content.data) {%>
                 <h1><%= content.data.first_name + " " + content.data.last_name %></h1>
                 <% } else { %>
                     <h1>Name Unavailable</h1>
+                    <p>API request limit likely reached... wait a minute</p>
                 <% } %>
             <% } else { %>
             <h1>Player</h1>
@@ -29,32 +31,36 @@
             <h2>Player Info</h2>
             <% if(locals.content) { %>
                 <p>
-                <% if(content.data.team.full_name) { %>
-                    Team: <%= content.data.team.full_name %> <br>
-                <% } %>
-                <% if(content.data.position) { %>
-                    Position: <%= content.data.position %> <br> 
-                <% } %>
-                <% if(content.data.height) { %>
-                    Height: <%= content.data.height %> <br>
-                <% } %>
-                <% if(content.data.weight) { %>
-                    Weight: <%= content.data.weight %> lbs <br>
-                <% } %>
-                <% if(content.data.jersey_number) { %>
-                    Jersey Number: <%= content.data.jersey_number %> <br>
-                <% } %>
-                <% if(content.data.college) { %> 
-                    College: <%= content.data.college %> <br>
-                <% } %>
-                <% if(content.data.draft_year) { %>
-                    Draft Year: <%= content.data.draft_year %> <br>
-                <% } %>
-                <% if(content.data.draft_round) { %>
-                    Draft Round:  <%= content.data.draft_round %> <br>
-                <% } %>
-                <% if(content.data.draft_number) { %>
-                    Draft Number: <%= content.data.draft_number %> <br>
+                <% if(content.data) { %>
+                    <% if(content.data.team.full_name) { %>
+                        Team: <%= content.data.team.full_name %> <br>
+                    <% } %>
+                    <% if(content.data.position) { %>
+                        Position: <%= content.data.position %> <br> 
+                    <% } %>
+                    <% if(content.data.height) { %>
+                        Height: <%= content.data.height %> <br>
+                    <% } %>
+                    <% if(content.data.weight) { %>
+                        Weight: <%= content.data.weight %> lbs <br>
+                    <% } %>
+                    <% if(content.data.jersey_number) { %>
+                        Jersey Number: <%= content.data.jersey_number %> <br>
+                    <% } %>
+                    <% if(content.data.college) { %> 
+                        College: <%= content.data.college %> <br>
+                    <% } %>
+                    <% if(content.data.draft_year) { %>
+                        Draft Year: <%= content.data.draft_year %> <br>
+                    <% } %>
+                    <% if(content.data.draft_round) { %>
+                        Draft Round:  <%= content.data.draft_round %> <br>
+                    <% } %>
+                    <% if(content.data.draft_number) { %>
+                        Draft Number: <%= content.data.draft_number %> <br>
+                    <% } %>
+                <% } else { %>
+                    <p>Player Info Unavailable</p>
                 <% } %>
             </p>
             <% } else {%>
